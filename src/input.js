@@ -29,8 +29,8 @@ async function processPullRequests() {
         core.info(`Request found`);
         core.info(`${currentRequest}`);
 
-        if(core.getInput("target_branch") != currentRequest.base_ref) {
-          core.info(`Skipping, branches are different ${currentRequest.base_ref}`);
+        if(core.getInput("target_branch") != currentRequest.base.ref) {
+          core.info(`Skipping, branches are different ${currentRequest.base.ref}`);
           continue;
         } 
 
