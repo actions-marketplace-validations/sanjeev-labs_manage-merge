@@ -35,7 +35,7 @@ async function processPullRequests() {
         await octokit.pulls.merge({
           owner,
           repo,
-          pull_number: pullRequest.number,
+          pull_number: currentRequest.number,
           merge_method: mergeMethod,
         });
     }
