@@ -26,7 +26,8 @@ async function processPullRequests() {
 
   for await (const currentRequest of openedRequests) {
         let body = currentRequest.body;
-        core.info(`${body}`);
+        core.info(`Request found`);
+        core.info(`${currentRequest}`);
 
         if(core.getInput("target_branch") != currentRequest.base_ref) {
           core.info(`Skipping, branches are different ${currentRequest.base_ref}`);
