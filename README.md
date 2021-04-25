@@ -9,6 +9,7 @@
 ```
 /mergeon 2021-01-01
 
+```
 
 - Add yaml file in your .github/workflows like .github/workflows/manage-merge.yaml
 
