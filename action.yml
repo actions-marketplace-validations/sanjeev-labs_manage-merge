@@ -18,3 +18,8 @@ inputs:
      Time zone to use. Default is UTC.
     required: false
     default: UTC
+  target_branch:
+    description: |-
+     Target branch, pull requested created for.
+    required: true
+    default: main

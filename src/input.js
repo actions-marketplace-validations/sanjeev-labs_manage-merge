@@ -28,7 +28,17 @@ async function processPullRequests() {
   for await (const currentRequest of openedRequests) {
         let body = currentRequest.body;
         core.info(`${body}`);
-        if(!IsItMergeDate(body)) continue;
+
+        if(core.getInput("target_branch") != currentRequest.base_ref) {
+          core.info(`Skipping, branches are different ${currentRequest.base_ref}`);
+          continue;
+        } 
+
+        if(!IsItMergeDate(body))
+        {
+          core.info(`Date did not match`);
+          continue;
+        } 
 
         core.info(`${currentRequest.labels}`);
 
@@ -46,7 +56,7 @@ async function processPullRequests() {
 function IsItMergeDate(body)
 {
    const mergeOn = new Date(body.match(/(^|\n)\/mergeon (.*)/).pop());
-   const stringLocale = new Date().toLocaleString("en-US", { timeZone: process.env.INPUT_TIME_ZONE });
+   const stringLocale = new Date().toLocaleString("en-US", { timeZone: core.getInput("time_zone") });
    const currentDate = new Date(stringLocale);
    return (mergeOn < currentDate);
 }
