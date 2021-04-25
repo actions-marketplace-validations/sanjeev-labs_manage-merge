@@ -1,10 +1,10 @@
 const core = require("@actions/core");
-const { octoKit } = require("@octokit/action");
+const { Octokit } = require("@octokit/action");
 const github = require('@actions/github')
 
 async function processPullRequests() {
 
-    const octokit = new octoKit();
+    const octokit = new Octokit();
     const repo = github.context.repo;
     const owner = github.context.owner;
     const mergeMethod = core.getInput("merge_method");

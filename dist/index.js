@@ -7355,12 +7355,12 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 const core = __nccwpck_require__(186);
-const { octoKit } = __nccwpck_require__(231);
+const { Octokit } = __nccwpck_require__(231);
 const github = __nccwpck_require__(438)
 
 async function processPullRequests() {
 
-    const octokit = new octoKit();
+    const octokit = new Octokit();
     const repo = github.context.repo;
     const owner = github.context.owner;
     const mergeMethod = core.getInput("merge_method");
