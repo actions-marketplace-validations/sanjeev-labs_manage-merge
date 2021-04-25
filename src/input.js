@@ -5,8 +5,7 @@ const github = require('@actions/github')
 async function processPullRequests() {
 
     const octokit = new Octokit();
-    const repo = github.context.repo;
-    const owner = github.context.owner;
+    const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
     const mergeMethod = core.getInput("merge_method");
 
     const openedRequests = await octokit.paginate(
