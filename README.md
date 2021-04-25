@@ -28,7 +28,7 @@ jobs:
   merge_schedule:
     runs-on: ubuntu-latest
     steps:
-      - uses: sanjeev-labs/manage-merge@v1
+      - uses: sanjeev-labs/manage-merge@v1.0
         with:
           # Merge method, use one of possible values merge, squash or
           # rebase. Default is merge.
