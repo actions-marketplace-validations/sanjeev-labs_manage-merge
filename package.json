@@ -1,0 +1,28 @@
+{
+  "name": "manage-merge",
+  "version": "1.0.0",
+  "description": "Manage merge using GitHub API for target branches on given date",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/input.js -o dist"
+  },
+  "keywords": [
+    "github",
+    "merge",
+    "branch",
+    "target",
+    "automate"
+  ],
+  "author": "sanjeev-labs",
+  "license": "MIT",
+  "repository": {
+    "url": "github.com/sanjeev-labs/manage-merge"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/github": "^4.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.28.3"
+  }
+}
