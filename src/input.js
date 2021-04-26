@@ -1,6 +1,5 @@
 const core = require("@actions/core");
 const { Octokit } = require("@octokit/action");
-const github = require('@actions/github')
 
 async function processPullRequests() {
 
@@ -34,6 +33,16 @@ async function processPullRequests() {
           continue;
         } 
 
+        if (currentRequest.labels !== undefined)
+        {
+          const labels = getLabels(currentRequest);
+          if (labels.length == 0 )
+          {
+             core.info(`Skipping, label not found `);
+             continue;
+          }
+        }
+
         if(!IsItMergeDate(body))
         {
           core.info(`Date did not match`);
@@ -52,6 +61,14 @@ async function processPullRequests() {
 
 }
 
+function getLabels(currentRequest)
+{
+  const labelName = core.getInput("label_name");
+  const labels = pullRequests.labels.filter((label) => {
+    return (label.name == labelName);
+  });
+  return labels;
+}
 
 function IsItMergeDate(body)
 {

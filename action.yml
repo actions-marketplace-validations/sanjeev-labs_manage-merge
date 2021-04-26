@@ -23,3 +23,8 @@ inputs:
      Target branch, pull requested created for.
     required: false
     default: main
+  label_name:
+    description: |-
+     Target branch's label to make sure branch that branch is ready for merge, if any label is given.
+    required: false
+    default: merge-ready
