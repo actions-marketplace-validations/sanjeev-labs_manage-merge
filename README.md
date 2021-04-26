@@ -36,7 +36,9 @@ jobs:
           # Name here target branch. Default is main
           target_branch: "main"
           #  Time zone to use. Default is UTC.
-          time_zone: "America/Los_Angeles"
+          time_zone: "America/New_York"
+          #  Branch label
+          label_name: "merge-ready"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```

@@ -5002,9 +5002,8 @@ async function processPullRequests() {
   }
 
   for await (const currentRequest of openedRequests) {
+
         let body = currentRequest.body;
-        core.info(`Request found`);
-        core.info(`${currentRequest}`);
 
         if(core.getInput("target_branch") != currentRequest.base.ref) {
           core.info(`Skipping, branches are different ${currentRequest.base.ref}`);
@@ -5027,7 +5026,7 @@ async function processPullRequests() {
           continue;
         } 
 
-        core.info(`${currentRequest.labels}`);
+        core.info(`Request found`);
 
         await octokit.pulls.merge({
           owner,
