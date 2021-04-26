@@ -5038,7 +5038,7 @@ async function processPullRequests() {
 
 }
 
-function getLabels(currentRequest)
+function getLabels(pullRequests)
 {
   const labelName = core.getInput("label_name");
   const labels = pullRequests.labels.filter((label) => {
